@@ -1,4 +1,4 @@
-import { IsUUID, IsNumber, IsDateString, IsNotEmpty } from 'class-validator';
+import { IsUUID, IsNumber, IsDateString } from 'class-validator';
 
 export class CreatePayableDto {
   @IsUUID()
