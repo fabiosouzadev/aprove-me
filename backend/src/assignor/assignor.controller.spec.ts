@@ -30,7 +30,7 @@ describe('AssignorController', () => {
       providers: [
         {
           provide: AssignorService,
-          useValue: mockAssignorService, // Fornecemos nosso mock em vez do serviço real
+          useValue: mockAssignorService,
         },
       ],
     }).compile();
@@ -89,34 +89,26 @@ describe('AssignorController', () => {
     });
   });
 
-  // Testes para o método PATCH /integrations/assignor/:id
   describe('update', () => {
     it('should update an assignor and return the updated data', async () => {
-      // Arrange
       const updateDto: UpdateAssignorDto = { name: 'Updated Name' };
       const updatedAssignor = { ...mockAssignor, ...updateDto };
       mockAssignorService.update.mockResolvedValue(updatedAssignor);
 
-      // Act
       const result = await controller.update(mockAssignor.id, updateDto);
 
-      // Assert
       expect(result).toEqual(updatedAssignor);
       expect(service.update).toHaveBeenCalledWith(mockAssignor.id, updateDto);
       expect(service.update).toHaveBeenCalledTimes(1);
     });
   });
 
-  // Testes para o método DELETE /integrations/assignor/:id
   describe('remove', () => {
     it('should remove an assignor and return the removed data', async () => {
-      // Arrange
       mockAssignorService.remove.mockResolvedValue(mockAssignor);
 
-      // Act
       const result = await controller.remove(mockAssignor.id);
 
-      // Assert
       expect(result).toEqual(mockAssignor);
       expect(service.remove).toHaveBeenCalledWith(mockAssignor.id);
       expect(service.remove).toHaveBeenCalledTimes(1);

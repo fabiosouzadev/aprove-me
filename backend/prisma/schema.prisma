@@ -29,3 +29,10 @@ model Payable {
   assignorId   String
   assignor     Assignor @relation(fields: [assignorId], references: [id])
 }
+model User {
+  id        String   @id @default(uuid())
+  login     String   @unique
+  password  String
+  role      String   @default("operator") // ex.: admin | operator
+  createdAt DateTime @default(now())
+}

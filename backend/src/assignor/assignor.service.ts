@@ -7,7 +7,7 @@ import { PrismaService } from '../../src/prisma.service';
 export class AssignorService {
   constructor(private readonly prisma: PrismaService) {}
   create(createAssignorDto: CreateAssignorDto) {
-    return this.prisma.assignor.create({ data: { ...createAssignorDto } });
+    return this.prisma.assignor.create({ data: createAssignorDto });
   }
 
   async findAll() {

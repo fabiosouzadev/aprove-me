@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PayableService } from './payable.service';
-import { PrismaService } from '../../src/prisma.service';
 import { CreatePayableDto } from './dto/create-payable.dto';
 import { UpdatePayableDto } from './dto/update-payable.dto';
+import { PrismaService } from '../../src/prisma.service';
 
 const mockPayable = {
   id: '123e4567-e89b-12d3-a456-426614174000',
